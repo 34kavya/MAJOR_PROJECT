@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate')%>
+
+<body>
+    <div class="col-8 offset-2 mt-3">
+        <h3>Edit Listing</h3>
+                  <br>
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+         <div class="mb-3">
+            <lable for="title" class="form-lable">Title</lable>
+          <input name="listing[title]" value="<%=listing.title%>" type="text" class="form-control">
+        </div>
+
+    <div class="mb-3">
+     <lable for="Description" class="form-lable">Description</lable>
+        <input name="listing[description]" value="<%=listing.description%>" placeholder="Enter description" type="text" class="form-control">
+    </div>
+
+
+        <div class="mb-3">
+            Orginal Listing Image:<br/>
+            <img src="<%=orginalImageUrl%>"style="width: 300px; height: 200px; object-fit: cover;" class="img-thumbnail mt-2"/>
+    
+</div>
+
+
+    <div class="mb-3">
+    <label for="image" class="form-label">Upload your Image</label>
+    <input 
+        name="listing[image]" 
+        type="file" 
+        class="form-control"
+    />
+</div>
+
+        <div class="row">
+<div class="mb-3 col-md-4">
+         <lable for="price" class="form-lable">Price</lable>
+        <input name="listing[price]" value="<%=listing.price%>" placeholder="Enter price" type="number" class="form-control">
+
+        </div>
+<div class="mb-3 col-md-4">
+        <lable for="country" class="form-lable">Country</lable>
+        <input name="listing[country]" placeholder="Enter country" type="text" class="form-control">
+
+    </div>
+        </div>
+      
+
+     <div class="mb-3">
+     <lable for="location" class="form-lable">Location</lable>
+        <input name="listing[location]" value="<%=listing.location%>" placeholder="Enter location" type="text" class="form-control">
+
+     </div>
+
+
+       
+        <button class="btn btn-dark add-btn mt-3" > Edit your Listing</button>
+    </form>
+    </div>
+</body>
